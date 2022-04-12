@@ -1,0 +1,13 @@
+name: Release
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-updater:
+    runs-on: ubuntu-latest
+    steps:
+      - name: REST API with curl
+        run: |
+          curl -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/darmalovan/Anythink-Market-Base-Local/generate -d '{"name":"anythink-testls22", "owner": "darmalovan", "private": true}'
